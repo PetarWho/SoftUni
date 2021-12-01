@@ -1,51 +1,37 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
-namespace SoftUniParty
+namespace SoftUniParking
 {
-    class SoftUniParty
+    class Program
     {
         static void Main(string[] args)
         {
-            HashSet<string> vip = new HashSet<string>();
-            HashSet<string> regular = new HashSet<string>();
-            bool partyStart = false;
-            string guest;
-            while ((guest = Console.ReadLine()) != "END")
-            {
-                if (guest == "PARTY")
-                {
-                    partyStart = true;
-                    continue;
-                }
+            string vipCheck = @"^\d.{7}";
+            HashSet<string> vips = new HashSet<string>();
+            HashSet<string> regulars = new HashSet<string>();
 
-                if (partyStart)
+            string input;
+            while ((input = Console.ReadLine()) != "PARTY")
+            {
+                Match vipMatch = Regex.Match(input, vipCheck);
+                if (vipMatch.Success)
                 {
-                    vip.Remove(guest);
-                    regular.Remove(guest);
+                    vips.Add(input);
                 }
                 else
                 {
-                    if (char.IsDigit(guest[0]))
-                    {
-                        vip.Add(guest);
-                    }
-                    else
-                    {
-                        regular.Add(guest);
-                    }
+                    regulars.Add(input);
                 }
             }
-
-            Console.WriteLine(vip.Count + regular.Count);
-            foreach (var g in vip)
+            vips.UnionWith(regulars);
+            while ((input = Console.ReadLine()) != "END")
             {
-                Console.WriteLine(g);
+                vips.Remove(input);
             }
-            foreach (var g in regular)
-            {
-                Console.WriteLine(g);
-            }
+            Console.WriteLine(vips.Count);
+            Console.WriteLine(string.Join(Environment.NewLine, vips));
         }
     }
 }
