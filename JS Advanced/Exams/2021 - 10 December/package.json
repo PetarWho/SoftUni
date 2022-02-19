@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "chai": "^4.3.6",
+    "mocha": "^9.2.0"
+  },
+  "name": "2021---10-december",
+  "version": "1.0.0",
+  "main": "VegetableStore.js",
+  "scripts": {
+    "test": "mocha ./*.test.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
