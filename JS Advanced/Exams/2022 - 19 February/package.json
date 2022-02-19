@@ -1,0 +1,16 @@
+{
+  "name": "2022---19-february",
+  "version": "1.0.0",
+  "description": "",
+  "main": "LibraryCollection.js",
+  "scripts": {
+    "test": "mocha ./*.test.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.3.6",
+    "mocha": "^9.2.1"
+  }
+}
