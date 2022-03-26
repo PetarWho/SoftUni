@@ -1,0 +1,56 @@
+body{
+    background-color: rgb(32, 32, 32);
+    padding-top: 70px;
+}
+
+h1,h2,h3,h4,h5,h6,p, label{
+    color: white;
+}
+
+.navbar{
+    position: fixed;
+    top: 0px;
+    width: 100%;
+}
+
+.movie-list{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.login{
+    font-size: 20px;
+    color: red;
+}
+
+.card-body{
+    text-align: center;
+}
+
+.movie-card{
+    margin: 5px;
+    width: 200px;
+}
+
+#login-form{
+    max-width: 350px;
+    text-align: center;
+    margin: auto;
+}
+
+.form-check{
+    text-align: left;
+    align-self: center;
+}
+
+.loggedIn{
+    font-size: 10px;
+    margin-left: 20px;
+    color: rgb(172, 216, 68);
+    text-decoration: none;
+    border-style:dashed;
+}
+.loggedIn:hover{
+    color: rgb(251, 255, 0);
+}
