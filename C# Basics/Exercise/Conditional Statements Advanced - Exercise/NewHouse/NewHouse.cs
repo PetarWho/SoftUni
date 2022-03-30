@@ -20,20 +20,12 @@ namespace NewHouse
                     {
                         price *= 0.90;
                     }
-                    else
-                    {
-                        price = 5;
-                    }
                     break;
                 case "Dahlias":
                     price = 3.80;
                     if (flowersAmount > 90)
                     {
                         price *= 0.85;
-                    }
-                    else
-                    {
-                        price = 3.80;
                     }
                     break;
                 case "Tulips":
@@ -42,10 +34,6 @@ namespace NewHouse
                     {
                         price *= 0.85;
                     }
-                    else
-                    {
-                        price = 2.80;
-                    }
                     break;
                 case "Narcissus":
                     price = 3;
@@ -53,20 +41,12 @@ namespace NewHouse
                     {
                         price *= 1.15;
                     }
-                    else
-                    {
-                        price = 3;
-                    }
                     break;
                 case "Gladiolus":
                     price = 2.50;
                     if (flowersAmount < 80)
                     {
                         price *= 1.20;
-                    }
-                    else
-                    {
-                        price = 2.50;
                     }
                     break;
             }
