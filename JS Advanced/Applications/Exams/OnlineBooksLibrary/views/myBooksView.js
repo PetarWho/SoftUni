@@ -28,7 +28,7 @@ const myBooksTemplate = (books) => html`
 `;
 
 export const myBooksView = (ctx) => {
-    bookService.getMyBooks(localStorage.getItem('_id')).then(books => {
+    bookService.getMyBooks(sessionStorage.getItem('_id')).then(books => {
         render(myBooksTemplate(books), document.querySelector('#container'));
     });
 }

@@ -1,3 +1,6 @@
+import * as httpClient from "../services/httpService.js";
+import page from "../node_modules/page/page.mjs";
+
 const baseUrl = 'http://localhost:3030/data/books';
 
 export const getAll = () => fetch(`${baseUrl}?sortBy=_createdOn%20desc`).then(res=>res.json());
@@ -11,7 +14,7 @@ export const create = (obj) => {
         method:'POST',
         headers:{
             'content-type': 'application/json',
-            'X-Authorization': `${localStorage.getItem('accessToken')}`
+            'X-Authorization': `${sessionStorage.getItem('accessToken')}`
         },
         body:JSON.stringify(obj)
     }).then(res=>res.json());
@@ -22,17 +25,20 @@ export const edit = (obj, bookId) => {
         method:'PUT',
         headers:{
             'content-type': 'application/json',
-            'X-Authorization': `${localStorage.getItem('accessToken')}`
+            'X-Authorization': `${sessionStorage.getItem('accessToken')}`
         },
         body:JSON.stringify(obj)
     }).then(res=>res.json());
 }
 
 
-export const remove = (bookId) => fetch(`${baseUrl}/${bookId}`,{
-    method: 'DELETE',
-    headers:{
-        'content-type': 'application/json',
-        'X-Authorization': `${localStorage.getItem('accessToken')}`
+export const deleteBook = async(e)=>{
+    const bookId = e.currentTarget.id;
+
+    if (confirm('Are you sure you want to delete this book?')) {
+
+        await httpClient.delete(`${baseUrl}/${bookId}`);
+
+        page.redirect('/');
     }
-}).then(res=>res.json());
+};

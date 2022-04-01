@@ -4,7 +4,7 @@ export const like = (bookId) => fetch(baseUrl, {
     method: 'POST',
     headers: {
         'content-type': 'application/json',
-        'X-Authorization': `${localStorage.getItem('accessToken')}`
+        'X-Authorization': `${sessionStorage.getItem('accessToken')}`
     },
     body: JSON.stringify({ bookId })
 }).then(res=>res.json());
@@ -13,7 +13,7 @@ export const getAll = (bookId) => fetch(`${baseUrl}?where=bookId%3D%22${bookId}%
     method:'GET',
     headers:{
         'content-type': 'application/json',
-        'X-Authorization': `${localStorage.getItem('accessToken')}`
+        'X-Authorization': `${sessionStorage.getItem('accessToken')}`
     }
 }).then(res=>res.json());
 
@@ -21,6 +21,6 @@ export const getLikeForBook = (bookId, userId) => fetch(`${baseUrl}?where=bookId
     method:'GET',
     headers:{
         'content-type': 'application/json',
-        'X-Authorization': `${localStorage.getItem('accessToken')}`
+        'X-Authorization': `${sessionStorage.getItem('accessToken')}`
     }
 }).then(res=>res.json());

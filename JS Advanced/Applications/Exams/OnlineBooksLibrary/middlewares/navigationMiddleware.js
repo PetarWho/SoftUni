@@ -11,7 +11,7 @@ const guestTemplate = () => html`
 const loggedTemplate = () => html`
 <!-- Logged-in users -->
 <div id="user">
-    <span>Welcome, ${localStorage.getItem('email')}</span>
+    <span>Welcome, ${sessionStorage.getItem('email')}</span>
     <a class="button" href="/books">My Books</a>
     <a class="button" href="/create">Add Book</a>
     <a class="button" href="/logout">Logout</a>

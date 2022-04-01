@@ -9,9 +9,7 @@ import { createView } from '../views/createView.js';
 import { homeView } from '../views/homeView.js';
 import { detailsView } from '../views/detailsView.js';
 import { editView } from '../views/editView.js';
-import { deleteHandler } from '../views/deleteHandler.js';
 import { myBooksView } from '../views/myBooksView.js';
-import { likeHandler } from '../views/likeHandler.js';
 
 page(navigationMiddleware);
 page(footerMiddleware);
@@ -24,7 +22,5 @@ page('/create', createView);
 page('/books', myBooksView)
 page('/books/:bookId', detailsView)
 page('/books/:bookId/edit', editView)
-page('/books/:bookId/delete', deleteHandler)
-page('/books/:bookId/like', likeHandler)
 
 page.start();

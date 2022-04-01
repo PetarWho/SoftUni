@@ -2,9 +2,9 @@ const baseUrl = 'http://localhost:3030/users';
 
 const saveUser = (user) => {
     if(user.accessToken){
-        localStorage.setItem('accessToken', user.accessToken);
-        localStorage.setItem('_id', user._id);
-        localStorage.setItem('email', user.email);
+        sessionStorage.setItem('accessToken', user.accessToken);
+        sessionStorage.setItem('_id', user._id);
+        sessionStorage.setItem('email', user.email);
     }
 }
 
@@ -43,12 +43,12 @@ export const logout = () => {
         method:'GET',
         headers:{
             'content-type': 'application/json',
-            'X-Authorization': `${localStorage.getItem('accessToken')}`
+            'X-Authorization': `${sessionStorage.getItem('accessToken')}`
         }
-    }).then(res=>localStorage.clear());
+    }).then(res=>sessionStorage.clear());
 }
 
 export const isAuthenticated = () => {
-    let accessToken = localStorage.getItem('accessToken');
+    let accessToken = sessionStorage.getItem('accessToken');
     return Boolean(accessToken);
 }

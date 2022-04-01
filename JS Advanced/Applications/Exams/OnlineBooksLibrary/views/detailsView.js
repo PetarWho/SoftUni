@@ -4,7 +4,7 @@ import * as bookService from '../services/bookService.js';
 import * as likeService from '../services/likeService.js';
 
 const isOwner = (ownerId) => {
-    return Boolean(ownerId == localStorage.getItem('_id'));
+    return Boolean(ownerId == sessionStorage.getItem('_id'));
 }
 
 const isLikeVisible = (ownerId) => {
@@ -22,7 +22,7 @@ const detailsTemplate = (book) => html`
                 ${isOwner(book._ownerId) ? html`
                 <!-- Edit/Delete buttons ( Only for creator of this book )  -->
                 <a class="button" href="/books/${book._id}/edit">Edit</a>
-                <a class="button" href="/books/${book._id}/delete">Delete</a>
+                <a id=${book._id} @click=${bookService.deleteBook} class="button" href="javascript:void(0)">Delete</a>
                 `: nothing}
     
                 <!-- Bonus -->
