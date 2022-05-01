@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body {
+    background-color: #070707;
+    background-image: url('../images/webb-dark.png');
+    background-repeat: repeat;
+    background-size: 50vh;
+    background-blend-mode: luminosity;
+}
+
+nav,
+footer {
+    background-color: #0B0C10;
+    width: 100%;
+    display: inline-flex;
+    font-size: 16px;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 5px 0 3px;
+    color: white;
+}
+
+nav a {
+    text-decoration: none;
+    color: #8f8f8f;
+    font-size: 20px;
+    font-weight: bolder;
+    position: relative;
+    margin: 20px;
+}
+
+nav ul {
+    margin: 0 0 0 auto;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 2px;
+}
+
+li::before {
+    display: inline;
+}
+
+nav a {
+    text-decoration: none;
+    border-radius: 50%;
+    padding: 0.5em;
+    color: white;
+}
+
+footer {
+    height: 2vw;
+    width: 100%;
+    padding: 15px, 0px, 20px, 0px;
+    text-align: center;
+    color: #c5c6c7;
+    font-size: 0.7em;
+    background-attachment: scroll;
+    bottom: 0pt;
+    left: 0pt;
+    position: fixed;
+    
+}
+
+nav a:hover {
+    cursor: pointer;
+    color: #45a29e;
+    font-weight: bolder;
+}
+
+#welcomePage {
+    color: #45a29e;
+    font-size: 24px;
+    padding: 30px;
+    margin: 10px;
+}
+
+#welcomePage img {
+    width: 60vh;
+}
+
+#ghost {
+    padding: 0em;
+    margin: 0.6em;
+    margin-left: 1em;
+}
+
+.movie-img {
+    display: inline-flex;
+}
+
+.movie-img img{
+    border: 0.1vh groove beige;
+}
+
+.text * {
+    color:#f9dab2;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.heading {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 2vh;
+    font-family: 'Press Start 2P', cursive;
+}
+
+nav a>img {
+    width: 50px;
+    height: 50px;
+}
+
+
+@media only screen and (max-width: 600px) {}
