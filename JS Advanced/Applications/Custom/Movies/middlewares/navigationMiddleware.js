@@ -1,5 +1,6 @@
 import { html, render, nothing } from "../node_modules/lit-html/lit-html.js";
 import { isAuthenticated, logout } from "../services/authService.js";
+
 const navTemplate = () => html`
 <!--Navigation-->
 <header>
@@ -8,10 +9,10 @@ const navTemplate = () => html`
             <img src="./images/ghost.png">
         </a>
         <a href="/">Movie Ghost</a>
+        ${isAuthenticated()?html`<h3 class="greetings">Welcome, ${ JSON.parse(sessionStorage.user).email }</h3>`:nothing}
         <ul>
-            ${isAuthenticated()?html`Welcome ${sessionStorage.user.email}`:nothing}
             <!--All user-->
-            <li><a href="/catalog">Movies</a></li>
+            <li><a href="/movies">Movies</a></li>
             <li><a href="/search">Search</a></li>
             ${isAuthenticated() ? html`
             <!--Only user-->

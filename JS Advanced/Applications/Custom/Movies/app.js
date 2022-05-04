@@ -9,6 +9,8 @@ import { createView } from "./views/createView.js";
 import { detailsView } from "./views/detailsView.js";
 import { editView } from "./views/editView.js";
 import { searchView } from "./views/searchView.js";
+import { watchView } from "./views/watchView.js";
+import { notFoundView } from "./views/notFoundView.js";
 
 
 page(navigationMiddleware);
@@ -16,10 +18,12 @@ page(navigationMiddleware);
 page('/', homeView);
 page('/login', loginView);
 page('/register', registerView);
-page('/catalog', catalogView);
+page('/movies', catalogView);
 page('/create', createView);
-page('/albums/:albumId', detailsView);
-page('/albums/:albumId/edit', editView);
 page('/search', searchView);
+page('/movies/:movieId', detailsView);
+page('/movies/:movieId/edit', editView);
+page('/watch/:movieId', watchView);
+page('*', notFoundView);
 
 page.start();

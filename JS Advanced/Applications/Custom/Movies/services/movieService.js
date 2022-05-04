@@ -2,8 +2,8 @@ import page from '../node_modules/page/page.mjs';
 import * as httpClient from './httpService.js';
 
 const baseUrl = 'http://localhost:3030/data/albums';
-
-export const getAll = () => httpClient.get(`${baseUrl}?sortBy=_createdOn%20desc&distinct=name`);
+                                                    //_createdOn%20desc&distinct=name
+export const getAll = () => httpClient.get(`${baseUrl}?sortBy=name`);
 export const getOne = (id) => httpClient.get(`${baseUrl}/${id}`);
 
 export const create = (e) => {
@@ -13,7 +13,7 @@ export const create = (e) => {
 
     if (name && imgUrl && releaseDate && mainActor && genre && description) {
         httpClient.post(baseUrl, { name, imgUrl, releaseDate, mainActor, genre, description });
-        page.redirect('/catalog');
+        page.redirect('/movies');
     } else {
         alert('All fields are required!');
     }
@@ -25,7 +25,7 @@ export const edit = (e) => {
 
     if (name && imgUrl && releaseDate && mainActor && genre && description) {
         httpClient.put(`${baseUrl}/${e.target.id}`, { name, imgUrl, releaseDate, mainActor, genre, description });
-        page.redirect(`/albums/${e.target.id}`);
+        page.redirect(`/movies/${e.target.id}`);
     } else {
         alert('All fields are required!');
     }
@@ -37,7 +37,7 @@ export const deleteMovie = (e) => {
     if (confirm('Do you want to delete this album?')) {
         try {
             httpClient.delete(`${baseUrl}/${e.target.id}`);
-            page.redirect('/catalog');
+            page.redirect('/movies');
         } catch (err) {
             alert(err.message);
         }
@@ -46,5 +46,8 @@ export const deleteMovie = (e) => {
 
 export const search = (searchText) => {
     let query = encodeURIComponent(searchText);
-    return httpClient.get(`${baseUrl}?where=name%20LIKE%20%22${query}%22`);
+    if (query)
+        return httpClient.get(`${baseUrl}?where=name%20LIKE%20%22${query}%22`);
+    else
+        return getAll();
 }

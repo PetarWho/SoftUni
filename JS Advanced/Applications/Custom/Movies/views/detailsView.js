@@ -2,10 +2,10 @@ import { html, render, nothing } from "../node_modules/lit-html/lit-html.js";
 import { isAuthenticated } from "../services/authService.js";
 import * as movieService from '../services/movieService.js';
 
-const isOwner = (albumOwner) => {
+const isOwner = (movieOwner) => {
     if (isAuthenticated()) {
         let user = JSON.parse(sessionStorage.user);
-        if (user._id == albumOwner) return true;
+        if (user._id == movieOwner) return true;
     }
     return false;
 }
@@ -27,20 +27,22 @@ const detailsTemplate = (movie) => html`
                     <p>${movie.description}</p>
                 </div>
             </div>
-
-            ${isOwner(movie._ownerId) ? html`
-            <!-- Only for registered user and creator of the album-->
             <div class="actionBtn">
-                <a id=${movie._id} href="/albums/${movie._id}/edit" class="edit">Edit</a>
-                <a id=${movie._id} @click=${movieService.deleteMovie} href="javascript:void(0)" class="remove">Delete</a>
-            </div>`: nothing}
+                <a id=${movie._id} href="/watch/${movie._id}" class="watch">Watch</a>
+                ${isOwner(movie._ownerId) ? html`
+                <!-- Only for registered user and creator of the movie-->
+                <a id=${movie._id} href="/movies/${movie._id}/edit" class="edit">Edit</a>
+                <a id=${movie._id} @click=${movieService.deleteMovie} href="javascript:void(0)"
+                    class="remove">Delete</a>
+                `: nothing}
+            </div>
         </div>
     </div>
 </section>
 `;
 
 export const detailsView = (ctx) => {
-    movieService.getOne(ctx.params.albumId).then(movie=>{
+    movieService.getOne(ctx.params.movieId).then(movie => {
         render(detailsTemplate(movie), document.querySelector('#box'));
     });
 }

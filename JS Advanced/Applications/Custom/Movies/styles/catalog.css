@@ -198,3 +198,13 @@ h2 {
     font-family: 'Lato';
     text-shadow: 5px 2px black;
 }
+
+.text-center .name{
+    font-size: 1.4em;
+    text-align: center;
+}
+
+.greetings{
+    clear: right;
+    margin-left: auto;
+}

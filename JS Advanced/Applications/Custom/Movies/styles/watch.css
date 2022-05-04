@@ -1,0 +1,14 @@
+.content{
+    display: block;
+    margin-top: 2vh;
+}
+
+.embed-container {
+    width: 100%;
+    text-align: center;
+}
+.h1-text{
+color:wheat;
+text-align: center;
+font-size: 3em;
+}
