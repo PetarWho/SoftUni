@@ -1411,6 +1411,17 @@
                 "_createdOn": 1651702064057,
                 "videoUrl":'https://emturbovid.com/t/dTT4eq8XdMuzYzEhDX7x',
             },
+            "99683a5f-775e-4f17-94eb-2bd66f96dbe6":{
+                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+                "name": "Turning Red",
+                "mainActor": "Channing Tatum",
+                "genre": "Comedy, Animation, Fantasy",
+                "imgUrl": "https://lumiere-a.akamaihd.net/v1/images/p_turningred_22797_1_c17f32af.jpeg",
+                "releaseDate": "21 February 2022",
+                "description": 'In 2002, Meilin "Mei" Lee is a 13-year-old Chinese-Canadian girl living in Toronto. She helps take care of the family\'s temple dedicated to their ancestor, Sun Yee, and works to make her strict, overprotective mother Ming proud. She hides her personal interests from Ming, such as the fact that she and her best friends Miriam, Priya, and Abby are fans of the boy band 4*Town. When Ming discovers Mei\'s crush on the local convenience store clerk, she unintentionally embarrasses Mei in public, including in front of school bully Tyler. Mei has a vivid nightmare involving red pandas. When she wakes up that morning, she has transformed into a large red panda.',
+                "_createdOn": 1652217285896,
+                "videoUrl":'https://emturbovid.com/t/E7qECiJJ7INT8JtswPfx',
+            },
         }
     };
     var rules$1 = {
