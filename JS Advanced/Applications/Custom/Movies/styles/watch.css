@@ -6,9 +6,10 @@
 .embed-container {
     width: 100%;
     text-align: center;
+    z-index: 999;
 }
 .h1-text{
-color:wheat;
+color:rgb(247, 121, 121);
 text-align: center;
 font-size: 3em;
 }
