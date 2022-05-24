@@ -266,7 +266,7 @@ INSERT INTO [RentalOrders]([EmployeeId],[CustomerId],[CarId],[OrderStatus]) VALU
 ,(2, 2, 1, 'Pending')
 
 
---Problem 15
+--Problem 15.	Hotel Database
 CREATE DATABASE [Hotels]
 USE [Hotels]
 
@@ -370,3 +370,104 @@ INSERT INTO [Occupancies] ([EmployeeId], [AccountNumber], [RoomNumber]) VALUES
 (1, 1, 123),
 (2, 2, 218),
 (3, 3, 333)
+
+
+--Problem 16.	Create SoftUni Database
+CREATE DATABASE [SoftUni]
+USE [SoftUni]
+
+CREATE TABLE [Towns](
+	[Id] INT PRIMARY KEY IDENTITY,
+	[Name] NVARCHAR(200) NOT NULL
+)
+
+CREATE TABLE [Addresses](
+	[Id] INT PRIMARY KEY IDENTITY,
+	[AddressText] NVARCHAR(500),
+	[TownId] INT FOREIGN KEY REFERENCES [Towns]([Id]) NOT NULL
+)
+
+CREATE TABLE [Departments](
+	[Id] INT PRIMARY KEY IDENTITY,
+	[Name] NVARCHAR(200) NOT NULL
+)
+
+CREATE TABLE [Employees](
+	[Id] INT PRIMARY KEY IDENTITY,
+	[FirstName] NVARCHAR(100) NOT NULL,
+	[MiddleName] NVARCHAR(100),
+	[LastName] NVARCHAR(100) NOT NULL,
+	[JobTitle] NVARCHAR(200),
+	[DepartmentId] INT FOREIGN KEY REFERENCES [Departments]([Id]),
+	[HireDate] DATE,
+	[Salary] DECIMAL (10,2),
+	[AddressId] INT FOREIGN KEY REFERENCES [Addresses]([Id]) NOT NULL
+)
+
+--Problem 17.	Backup Database
+-- https://support.microsoft.com/en-gb/help/2019698/how-to-schedule-and-automate-backups-of-sql-server-databases-in-sql-se
+
+
+--Problem 18.	Basic Insert
+INSERT INTO [Towns]([Name]) VALUES
+('Sofia')
+,('Plovdiv')
+,('Varna')
+,('Burgas')
+
+INSERT INTO [Addresses]([AddressText],[TownId]) VALUES
+('bul. Bulgaria', 2)
+,('bul. Vasil Levski', 1)
+,('bul. Hristo Botev', 3)
+,('bul. Stefan Stambolov', 4)
+
+INSERT INTO [Departments]([Name]) VALUES
+('Engineering')
+,('Sales')
+,('Marketing')
+,('Software Development')
+,('Quality Assurance')
+
+INSERT INTO [Employees]([FirstName], [MiddleName], [LastName], 
+[JobTitle], [DepartmentId], [HireDate], [Salary], [AddressId]) VALUES
+('Ivan', 'Ivanov', 'Ivanov', '.NET Developer','4', '2013-02-01', 3500.00, 3)
+,('Petar', 'Petrov', 'Petrov', 'Senior Engineer','1', '2004-03-02', 4000.00, 2)
+,('Maria', 'Petrova', 'Ivanova', 'Intern','5', '2016-08-28', 525.25, 1)
+,('Georgi', 'Teziev', 'Ivanov', 'CEO','2', '2007-12-09', 3000.00, 2)
+,('Peter', 'Pan', 'Pan', 'Intern','3', '2016-08-28', 599.88, 4)
+
+
+--Problem 19.	Basic Select All Fields
+SELECT * FROM [Towns]
+SELECT * FROM [Departments]
+SELECT * FROM [Employees]
+
+
+--Problem 20.	Basic Select All Fields and Order Them
+SELECT * FROM [Towns] ORDER BY [Name] ASC
+SELECT * FROM [Departments] ORDER BY [Name] ASC
+SELECT * FROM [Employees] ORDER BY [Salary] DESC
+
+
+--Problem 21.	Basic Select Some Fields
+SELECT [Name] FROM [Towns] ORDER BY [Name] ASC
+SELECT [Name] FROM [Departments] ORDER BY [Name] ASC
+SELECT [FirstName], [LastName], [JobTitle], [Salary] FROM [Employees] ORDER BY [Salary] DESC
+
+
+--Problem 22.	Increase Employees Salary
+UPDATE [Employees]
+SET [Salary] = [Salary]*1.1
+Select [Salary] FROM [Employees]
+
+
+--Problem 23.	Decrease Tax Rate
+USE [Hotels]
+
+UPDATE [Payments]
+SET [TaxRate] = [TaxRate]*0.97
+SELECT [TaxRate] FROM [Payments]
+
+
+--Problem 24.	Delete All Records
+DELETE FROM [Occupancies]
