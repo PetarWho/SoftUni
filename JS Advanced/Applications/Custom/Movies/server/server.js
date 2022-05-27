@@ -1422,6 +1422,17 @@
                 "_createdOn": 1652217285896,
                 "videoUrl":'https://emturbovid.com/t/E7qECiJJ7INT8JtswPfx',
             },
+            "e1534b8d-4d03-4fb2-97e6-eee12afa4b23":{
+                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+                "name": "War Dogs",
+                "mainActor": "Miles Teller",
+                "genre": "Comedy, Military",
+                "imgUrl": "https://m.media-amazon.com/images/M/MV5BZjU2Mzc3YzctMWQwOC00MTlhLTliZjYtNDkxZmU5NjJmZDU3XkEyXkFqcGdeQXVyMTA4NjE0NjEy._V1_.jpg",
+                "releaseDate": "19 August 2016",
+                "description": 'In 2005, David Packouz is a massage therapist living in Miami, Florida with his girlfriend Iz. David spends his life savings on high-quality bedsheets to resell to retirement homes, but the venture fails. David runs into his old friend Efraim Diveroli, who has formed his own company, AEY Inc., selling arms to the US government for the ongoing war in Iraq. Iz informs David she is pregnant, and Efraim offers him a job at AEY; although David and Iz vehemently oppose the war, David joins AEY and lies to Iz. Efraim explains that military equipment orders are posted on a public website, and their job is to bid for small orders ignored by larger contractors but still worth millions. Local businessman Ralph Slutzky provides them funding, under the false belief that AEY only sells arms to protect Israel. David and Efraim land a contract to provide several thousand Beretta pistols to the Iraqi Police in Baghdad, but an Italian embargo blocks the shipment, which is waylaid in Jordan. Failing to deliver the cargo as promised would mean that AEY would be blacklisted from any future contracts. Meanwhile, Iz overhears the true nature of David\'s business.',
+                "_createdOn": 1653492415962,
+                "videoUrl":'https://vidshar.org/embed-9p2nn39ir8l4.html',
+            },
         }
     };
     var rules$1 = {
