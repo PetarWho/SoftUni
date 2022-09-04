@@ -8,7 +8,7 @@ namespace NewHouse
         {
             string flowersType = Console.ReadLine();
             int flowersAmount = int.Parse(Console.ReadLine());
-            int Budget = int.Parse(Console.ReadLine());
+            int budget = int.Parse(Console.ReadLine());
 
             double price = 0;
 
@@ -51,8 +51,8 @@ namespace NewHouse
                     break;
             }
             double totalPrice = price * flowersAmount;
-            double diffInBudget = Math.Abs(totalPrice - Budget);
-            Console.WriteLine(totalPrice <= Budget ? $"Hey, you have a great garden with {flowersAmount} {flowersType} and {diffInBudget:f2} leva left." : $"Not enough money, you need {diffInBudget:f2} leva more.");
+            double diffInBudget = Math.Abs(totalPrice - budget);
+            Console.WriteLine(totalPrice <= budget ? $"Hey, you have a great garden with {flowersAmount} {flowersType} and {diffInBudget:f2} leva left." : $"Not enough money, you need {diffInBudget:f2} leva more.");
         }
     }
 }
