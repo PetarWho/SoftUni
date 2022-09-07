@@ -19,4 +19,5 @@ function CharityCampaign(input){
 
     console.log(finalPrice);
 }
+
 CharityCampaign(["23", "8", "14", "30", "16"])
