@@ -18,4 +18,3 @@ print(f"Total eaten biscuits: {int(biscuits)}gr.")
 print(f"{(cat_food_eaten + dog_food_eaten) / food_amount * 100:.2f}% of the food has been eaten.")
 print(f"{dog_food_eaten / (cat_food_eaten + dog_food_eaten) * 100:.2f}% eaten from the dog.")
 print(f"{cat_food_eaten / (cat_food_eaten + dog_food_eaten) * 100:.2f}% eaten from the cat.")
-
