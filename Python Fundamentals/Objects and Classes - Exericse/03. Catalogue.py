@@ -22,4 +22,3 @@ catalogue.add_product("Chair")
 catalogue.add_product("Carpet")
 print(catalogue.get_by_letter("C"))
 print(catalogue)
-

@@ -3,7 +3,7 @@ class Storage:
         self.capacity = capacity
         self.storage = []
 
-    def add_product(self, product:str):
+    def add_product(self, product: str):
         if len(self.storage) < self.capacity:
             self.storage.append(product)
 
