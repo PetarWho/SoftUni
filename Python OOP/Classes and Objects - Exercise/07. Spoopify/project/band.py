@@ -1,5 +1,8 @@
-from project.album import Album
-from project.song import Song
+#from project.album import Album
+#from project.song import Song
+from song import Song
+from album import Album
+
 class Band:
     def __init__(self, name:str):
         self.name = name
