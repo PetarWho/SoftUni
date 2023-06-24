@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+    <main>
+
+        <!-- Edit Fruit Form -->
+        <section id="edit">
+            <div class="form">
+                <h2>Edit Fruit</h2>
+                <form method="post" action="{% url 'fruit_edit' fruitId=fruit.id%}" class="edit-form">
+                    {% csrf_token %}
+                    {{ edit_form }}
+                    <button type="submit">Edit</button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+{% endblock %}
