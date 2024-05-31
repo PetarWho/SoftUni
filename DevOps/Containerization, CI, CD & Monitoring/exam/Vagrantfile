@@ -1,0 +1,44 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure(2) do |config|
+    
+  config.ssh.insert_key = false
+  
+  config.vm.define "containers" do |containers|
+    containers.vm.box = "shekeriev/centos-stream-9"
+    containers.vm.hostname = "containers.do1.exam"
+    containers.vm.provider :virtualbox do |vb|
+      vb.customize ["modifyvm", :id, "--memory", "4096"]
+    end
+    containers.vm.network "private_network", ip: "192.168.111.202"
+    containers.vm.network "forwarded_port", guest: 8080, host: 8081
+    containers.vm.provision "shell", path: "add_hosts.sh"
+    containers.vm.provision "shell", path: "install_docker.sh"
+  end
+
+  config.vm.define "monitoring" do |monitoring|
+    monitoring.vm.box = "shekeriev/centos-stream-9"
+    monitoring.vm.hostname = "monitoring.do1.exam"
+    monitoring.vm.provider :virtualbox do |vb|
+      vb.customize ["modifyvm", :id, "--memory", "4096"]
+    end
+    monitoring.vm.network "private_network", ip: "192.168.111.203"
+    monitoring.vm.network "forwarded_port", guest: 3000, host: 8082
+    monitoring.vm.provision "shell", path: "add_hosts.sh"
+    monitoring.vm.provision "shell", path: "install_docker_monitoring.sh"
+  end
+
+  config.vm.define "pipelines" do |pipelines|
+    pipelines.vm.box="shekeriev/centos-stream-9"
+    pipelines.vm.hostname = "pipelines.do1.exam"
+    pipelines.vm.provider :virtualbox do |vb|
+      vb.customize ["modifyvm", :id, "--memory", "4096"]
+    end
+    pipelines.vm.network "private_network", ip: "192.168.111.201"
+    pipelines.vm.network "forwarded_port", guest: 8080, host: 8080
+    pipelines.vm.provision "shell", path: "add_hosts.sh"
+    pipelines.vm.provision "shell", path: "install_jenkins.sh"
+  end
+
+end
